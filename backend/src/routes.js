@@ -25,16 +25,19 @@ routes.post("/login", (req, res) => {
 });
 
 routes.post("/register", (req, res) => {
+
   const { email, name, password, confirmPassword } = req.body;
 
-  const user = users.push({
-      id: users.length + 1,
-      name: name,
-      email: email,
-      password: password,
+  users.push({
+    id: users.length + 1,
+    name: name,
+    email: email,
+    password: password,
   })
-  
 
+  const user = users.find(
+    (user) => user.email === email && user.password === password
+  );
 
   if (user) {
     return res.status(200).json(user.name);
@@ -42,7 +45,5 @@ routes.post("/register", (req, res) => {
     return res.status(401).json({ message: "Credenciais Inválidas" });
   }
 });
-
-console.log(users)
 
 module.exports = routes;
