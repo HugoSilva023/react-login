@@ -1,18 +1,18 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { DataContext } from "../context/DataContext";
+import { Link, useNavigate } from "react-router-dom";
+import { DataContext } from "../../context/DataContext";
 import axios from "axios";
-import "./loginForm.css";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const {setUser, error, setError} = useContext(DataContext);
+  const { setUser, error, setError } = useContext(DataContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
 
     try {
       const response = await axios.post(
@@ -25,14 +25,11 @@ const LoginForm = () => {
 
       setUser(response.data);
       return navigate("/home");
-
     } catch (error) {
       if (!error?.response) {
         return setError("Erro ao acessar o servidor");
-
       } else if (error.response.status == 401) {
         return setError("Usuário ou senha inválidos");
-
       }
     }
   };
@@ -64,6 +61,10 @@ const LoginForm = () => {
         </button>
       </form>
       <p>{error}</p>
+      <h4>If you havent registered yet</h4>
+      <Link to="register" className="btn-link">
+        Create user
+      </Link>
     </div>
   );
 };

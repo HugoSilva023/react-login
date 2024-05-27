@@ -5,30 +5,9 @@ body {
   color: #2b3e51;
 }
 
-h2 {
+h2, h4 {
   font-weight: 300;
   text-align: center;
-}
-
-a,
-a:link,
-a:visited,
-a:active {
-  color: #3ca9e2;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-a:focus,
-a:hover,
-a:link:focus,
-a:link:hover,
-a:visited:focus,
-a:visited:hover,
-a:active:focus,
-a:active:hover {
-  color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
 }
 
 .login-form-wrap {
@@ -57,7 +36,9 @@ input {
 }
 
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+input[type="name"],
+input[type="confirmPassword"] {
   width: 100%;
   padding: 0 0 0 10px;
   margin: 10px 0;
@@ -73,13 +54,35 @@ input[type="email"] {
   background: none;
 }
 input[type="password"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus,
+input[type="name"]:focus,
+input[type="confirmPassword"]:focus {
   border-color: #3ca9e2;
 }
 
 .wrap-home {
   margin: 30px auto;
   text-align: center;
+}
+
+.btn-link {
+  border: none;
+  display: block;
+  background-color: #3ca9e2;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  padding: 20px;
 }
 
 .btn-login {
@@ -95,7 +98,6 @@ input[type="email"]:focus {
   font-size: 18px;
   position: relative;
   display: inline-block;
-  cursor: pointer;
   text-align: center;
   margin-bottom: 30px;
   margin-top: 10px;
@@ -136,4 +138,12 @@ input[type="email"]:focus {
   text-align: center;
   margin: 30px auto 20px auto;
   padding: 20px;
+}
+
+form p {
+  color: red;
+  font-size: 1rem;
+  margin: 0 0 15px 0;
+  padding-left: 10px;
+  text-align: left;
 }
