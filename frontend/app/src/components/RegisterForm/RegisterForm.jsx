@@ -52,7 +52,7 @@ const LoginForm = () => {
         <input
           type="email"
           name="email"
-          {...register("email")}
+          {...register("email", {required: true})}
           placeholder="Digite um email"
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -60,7 +60,7 @@ const LoginForm = () => {
         <input
           type="name"
           name="name"
-          {...register("name")}
+          {...register("name", {required: true})}
           placeholder="Digite seu nome"
           onChange={(e) => setName(e.target.value)}
         />
@@ -68,7 +68,7 @@ const LoginForm = () => {
         <input
           type="password"
           name="password"
-          {...register("password")}
+          {...register("password", {required: true})}
           placeholder="Digite uma senha"
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -76,7 +76,7 @@ const LoginForm = () => {
         <input
           type="password"
           name="confirmPassword"
-          {...register("confirmPassword")}
+          {... register("confirmPassword", {required: true})}
           placeholder="Confirme a senha"
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
